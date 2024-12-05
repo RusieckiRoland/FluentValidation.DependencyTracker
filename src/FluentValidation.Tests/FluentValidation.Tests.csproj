@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentValidation.DependencyInjectionExtensions\FluentValidation.DependencyInjectionExtensions.csproj" />
+    <ProjectReference Include="..\FluentValidation.DependencyTracker\FluentValidation.DependencyTracker\FluentValidation.DependencyTracker.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="TestMessages.Designer.cs">
