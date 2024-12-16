@@ -1,13 +1,16 @@
 ﻿using FluentValidation.Tests.FluentValidation.DependencyTracker.TestHelpers.Models;
+using System.Collections.Generic;
+using System.Linq;
+using static FluentValidation.Tests.PropertyChainTests;
 
 namespace FluentValidation.Tests.FluentValidation.DependencyTracker.TestHelpers.Factories {
-		public static class TestPersonFactory {
+	public static class TestPersonFactory {
 		public static TestPerson CreateAdult(string firstName = "John", string lastName = "Doe", int age = 25) {
 			return new TestPerson {
 				FirstName = firstName,
 				LastName = lastName,
 				Age = age,
-				ParentConsentGiven = false, 
+				ParentConsentGiven = false,
 				ParentFirstName = null,
 				ParentLastName = null
 			};
@@ -18,7 +21,7 @@ namespace FluentValidation.Tests.FluentValidation.DependencyTracker.TestHelpers.
 				FirstName = firstName,
 				LastName = lastName,
 				Age = age,
-				ParentConsentGiven = false, 
+				ParentConsentGiven = false,
 				ParentFirstName = null,
 				ParentLastName = null
 			};
@@ -46,7 +49,17 @@ namespace FluentValidation.Tests.FluentValidation.DependencyTracker.TestHelpers.
 				ParentLastName = null
 			};
 		}
+
+		public static TestPerson CreateWithChildren(string firstName = "John", string lastName = "Doe", int age = 35, params TestChild[] children) {
+			return new TestPerson {
+				FirstName = firstName,
+				LastName = lastName,
+				Age = age,
+				ParentConsentGiven = false,
+				ParentFirstName = null,
+				ParentLastName = null,
+				Children = children.ToList()
+			};
+		}
 	}
-
-
 }
